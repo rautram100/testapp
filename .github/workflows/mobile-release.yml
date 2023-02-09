@@ -71,4 +71,4 @@ jobs:
         with:
           name: release-ipa
           # Path to the release files
-          path: build/ios/ipa/*.ipa
+          path: ./fluttertest/testapp/build/ios/ipa/*.ipa

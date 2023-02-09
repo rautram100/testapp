@@ -1,9 +1,10 @@
 name: Flutter Workflow
 
-on:
-  workflow_dispatch:
-    paths:
-      - "fluttertest/testapp/**"
+on: workflow_dispatch
+defaults:
+  run:
+    working-directory: ./fluttertest/testapp
+
 jobs:
   build:
     runs-on: ubuntu-latest

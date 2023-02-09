@@ -3,7 +3,7 @@ name: Flutter Workflow
 on:
   workflow_dispatch:
     paths:
-      - "fluttertest/testapp/"
+      - "fluttertest/testapp/**"
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -22,26 +22,26 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Setup Java to compile Android project
-        uses: actions/setup-java@v3
-        with:
-          distribution: "temurin"
-          java-version: "11.x"
-          cache: "gradle"
+      # - name: Setup Java to compile Android project
+      #   uses: actions/setup-java@v3
+      #   with:
+      #     distribution: "temurin"
+      #     java-version: "11.x"
+      #     cache: "gradle"
 
-      - name: Download Android keystore
-        id: android_keystore
-        uses: timheuer/base64-to-file@v1.2
-        with:
-          fileName: upload-keystore.jks
-          encodedString: ${{ secrets.KEY_STORE_2 }}
+      # - name: Download Android keystore
+      #   id: android_keystore
+      #   uses: timheuer/base64-to-file@v1.2
+      #   with:
+      #     fileName: upload-keystore.jks
+      #     encodedString: ${{ secrets.KEY_STORE_2 }}
 
-      - name: Create key.properties
-        run: |
-          echo "storeFile=${{ steps.android_keystore.outputs.filePath }}" > android/key.properties
-          echo "storePassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
-          echo "keyPassword=${{ secrets.KEY_STORE }}" >> android/key.properties
-          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
+      # - name: Create key.properties
+      #   run: |
+      #     echo "storeFile=${{ steps.android_keystore.outputs.filePath }}" > android/key.properties
+      #     echo "storePassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
+      #     echo "keyPassword=${{ secrets.KEY_STORE }}" >> android/key.properties
+      #     echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
 
       - name: Start Android Release Build
         run: flutter build appbundle

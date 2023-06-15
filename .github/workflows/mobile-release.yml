@@ -15,7 +15,7 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.3.9"
+          flutter-version: "3.7.12"
           channel: "stable"
           cache: true
 
@@ -66,9 +66,9 @@ jobs:
       - name: Building IPA
         run: flutter build ipa --export-options-plist=ios/Runner/ExportOptions.plist
 
-      - name: collect ipa artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-ipa
-          # Path to the release files
-          path: ./fluttertest/testapp/build/ios/ipa/*.ipa
+      # - name: collect ipa artifacts
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: release-ipa
+      #     # Path to the release files
+      #     path: ./fluttertest/testapp/build/ios/ipa/*.ipa
